@@ -16,9 +16,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "config.h"
 #import "BoxOperation.h"
 
+#if ISiMAC
 #import <WebKit/WebKit.h>
+#endif
 
 @class BoxUser;
 @class BoxGetTicketOperation;
@@ -47,9 +50,13 @@ typedef enum _BoxLoginBuilderWebViewStep {
 
 @end
 
-@interface BoxLoginBuilder : NSObject<UIWebViewDelegate, BoxOperationDelegate> {
+@interface BoxLoginBuilderMac : NSObject<BoxOperationDelegate> {
     
-	WebView *_webView;
+#if ISiPHONE || ISiPAD
+	UIWebView *_webView;
+#else
+    WebView *_webView;
+#endif
 	
 	id<BoxLoginBuilderDelegate> _delegate;
 	
@@ -57,7 +64,7 @@ typedef enum _BoxLoginBuilderWebViewStep {
 	
 }
 
-- (id)initWithWebview:(UIWebView *)webView delegate:(id<BoxLoginBuilderDelegate>)delegate;
+- (id)initWithWebview:(WebView *)webView delegate:(id<BoxLoginBuilderDelegate>)delegate;
 - (void)startLoginProcess;
 
 @end
