@@ -16,7 +16,7 @@
 //
 
 #import "BoxAddCommentsOperation.h"
-#import "BoxLoginViewController.h"
+#import "BoxUser.h"
 
 
 @interface BoxAddCommentsOperation() {
@@ -49,7 +49,7 @@
 	return [[[BoxAddCommentsOperation alloc] initForTargetID:targetID
 												  targetType:targetType
 													 message:message
-												   authToken:[BoxLoginViewController currentUser].authToken
+												   authToken:[BoxUser savedUser].authToken
 													delegate:nil] autorelease];
 }
 

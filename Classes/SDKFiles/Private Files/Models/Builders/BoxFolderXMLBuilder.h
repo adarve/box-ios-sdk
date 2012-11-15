@@ -15,7 +15,6 @@
 //   limitations under the License.
 //
 
-#import <UIKit/UIKit.h>
 #import "BoxFolder.h"
 #import "BoxFile.h"
 #import "BoxRESTApiFactory.h"

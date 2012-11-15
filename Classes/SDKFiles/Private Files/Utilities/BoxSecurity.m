@@ -1,8 +1,8 @@
 
 #import <Security/Security.h>
-#import "UIApplication+Security.h"
+#import "BoxSecurity.h"
 
-@implementation UIApplication (Security)
+@implementation BoxSecurity
 
 static NSString *serviceName = @"com.box.boxSDK";
 
@@ -20,7 +20,7 @@ static NSString *serviceName = @"com.box.boxSDK";
 }
 
 + (NSString *)searchKeychainMatching:(NSString *)identifier {
-    NSMutableDictionary *searchDictionary = [[self class] searchDictionary:identifier];
+    NSMutableDictionary *searchDictionary = [BoxSecurity searchDictionary:identifier];
 	
     // Add search attributes
     [searchDictionary setObject:(id)kSecMatchLimitOne forKey:(id)kSecMatchLimit];
@@ -41,7 +41,7 @@ static NSString *serviceName = @"com.box.boxSDK";
 }
 
 + (BOOL)createKeychainValue:(NSString *)password forIdentifier:(NSString *)identifier {
-    NSMutableDictionary *dictionary = [[self class] searchDictionary:identifier];
+    NSMutableDictionary *dictionary = [BoxSecurity searchDictionary:identifier];
     NSData *passwordData = [password dataUsingEncoding:NSUTF8StringEncoding];
     
     [dictionary setObject:passwordData forKey:(id)kSecValueData];
@@ -56,7 +56,7 @@ static NSString *serviceName = @"com.box.boxSDK";
 
 + (BOOL)updateKeychainValue:(NSString *)password forIdentifier:(NSString *)identifier {
     
-    NSMutableDictionary *searchDictionary = [[self class] searchDictionary:identifier];
+    NSMutableDictionary *searchDictionary = [BoxSecurity searchDictionary:identifier];
     NSMutableDictionary *updateDictionary = [[NSMutableDictionary alloc] init];
     NSData *passwordData = [password dataUsingEncoding:NSUTF8StringEncoding];
     [updateDictionary setObject:passwordData forKey:(id)kSecValueData];
@@ -74,7 +74,7 @@ static NSString *serviceName = @"com.box.boxSDK";
 
 + (void)deleteKeychainValue:(NSString *)identifier {
 	
-    NSMutableDictionary *searchDictionary = [[self class] searchDictionary:identifier];
+    NSMutableDictionary *searchDictionary = [BoxSecurity searchDictionary:identifier];
     SecItemDelete((CFDictionaryRef)searchDictionary);
 }
 

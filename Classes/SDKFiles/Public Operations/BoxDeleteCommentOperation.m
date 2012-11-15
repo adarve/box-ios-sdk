@@ -16,7 +16,7 @@
 //
 
 #import "BoxDeleteCommentOperation.h"
-#import "BoxLoginViewController.h"
+#import "BoxUser.h"
 
 
 @interface BoxDeleteCommentOperation()
@@ -35,7 +35,7 @@
 + (BoxDeleteCommentOperation *)operationForCommentID:(NSString *)commentID
 {
 	return [[[BoxDeleteCommentOperation alloc] initForCommentID:commentID
-													  authToken:[BoxLoginViewController currentUser].authToken
+													  authToken:[BoxUser savedUser].authToken
                                                        delegate:nil] autorelease];
 }
 

@@ -16,7 +16,7 @@
 //
 
 #import "BoxPublicUnshareOperation.h"
-#import "BoxLoginViewController.h"
+#import "BoxUser.h"
 
 
 @interface BoxPublicUnshareOperation() {
@@ -43,7 +43,7 @@
 {
 	return [[[BoxPublicUnshareOperation alloc] initForTargetID:targetID
 													targetType:targetType
-													 authToken:[BoxLoginViewController currentUser].authToken
+													 authToken:[BoxUser savedUser].authToken
 													  delegate:nil] autorelease];
 }
 

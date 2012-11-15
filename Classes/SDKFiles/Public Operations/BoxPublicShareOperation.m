@@ -16,7 +16,7 @@
 //
 
 #import "BoxPublicShareOperation.h"
-#import "BoxLoginViewController.h"
+#import "BoxUser.h"
 
 
 @interface BoxPublicShareOperation() {
@@ -61,7 +61,7 @@
 													password:password
 													 message:message
 													  emails:emails
-												   authToken:[BoxLoginViewController currentUser].authToken
+												   authToken:[BoxUser savedUser].authToken
 													delegate:nil] autorelease];
 }
 

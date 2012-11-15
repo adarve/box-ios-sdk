@@ -16,7 +16,7 @@
 //
 
 #import "BoxDeleteOperation.h"
-#import "BoxLoginViewController.h"
+#import "BoxUser.h"
 
 
 @interface BoxDeleteOperation()
@@ -39,7 +39,7 @@
 {
 	BoxDeleteOperation *operation = [[BoxDeleteOperation alloc] initForTargetId:targetID 
 																	 targetType:targetType 
-																	  authToken:[BoxLoginViewController currentUser].authToken
+																	  authToken:[BoxUser savedUser].authToken
                                                                        delegate:nil];
 
 	return [operation autorelease];

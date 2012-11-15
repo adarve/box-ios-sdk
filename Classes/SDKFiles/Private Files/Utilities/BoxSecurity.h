@@ -1,7 +1,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface UIApplication (Security)
+@interface BoxSecurity
 
 + (void)deleteKeychainValue:(NSString *)identifier;
 + (BOOL)updateKeychainValue:(NSString *)password forIdentifier:(NSString *)identifier;

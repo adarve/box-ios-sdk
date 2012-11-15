@@ -16,8 +16,7 @@
 //
 
 #import "BoxUser.h"
-#import "UIApplication+Security.h"
-
+#import "BoxSecurity.h"
 
 static BoxUser * sharedLoggedInUser = nil;
 
@@ -89,7 +88,7 @@ static BoxUser * sharedLoggedInUser = nil;
     if (user == nil) {
         return nil; //no file exists
     }
-    user.authToken = [UIApplication searchKeychainMatching:user.userName];
+    user.authToken = [BoxSecurity searchKeychainMatching:user.userName];
     if (user.authToken == nil) {
         return nil;
     }
@@ -103,7 +102,7 @@ static BoxUser * sharedLoggedInUser = nil;
         currentUser = [NSKeyedUnarchiver unarchiveObjectWithFile:[[self class] pathForUserInfo]];
     }
     if (currentUser) {
-        [UIApplication deleteKeychainValue:currentUser.userName];
+        [BoxSecurity deleteKeychainValue:currentUser.userName];
     }
     if (sharedLoggedInUser != nil) {
         [sharedLoggedInUser release];
@@ -131,7 +130,7 @@ static BoxUser * sharedLoggedInUser = nil;
     if (rememberLogin) {
         success = [NSKeyedArchiver archiveRootObject:self toFile:[[self class] pathForUserInfo]];
         if (success) {
-            success = [UIApplication createKeychainValue:self.authToken forIdentifier:sharedLoggedInUser.userName];
+            success = [BoxSecurity createKeychainValue:self.authToken forIdentifier:sharedLoggedInUser.userName];
         }
     }
     return success;

@@ -16,7 +16,7 @@
 //
 
 #import "BoxRenameOperation.h"
-#import "BoxLoginViewController.h"
+#import "BoxUser.h"
 
 
 @interface BoxRenameOperation() {
@@ -48,7 +48,7 @@
 	return [[[BoxRenameOperation alloc] initForTargetID:targetID
 											 targetType:targetType
 										destinationName:destName
-											  authToken:[BoxLoginViewController currentUser].authToken
+											  authToken:[BoxUser savedUser].authToken
 											   delegate:nil] autorelease];
 }
 

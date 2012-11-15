@@ -16,7 +16,6 @@
 
 #import "BoxUploadOperation.h"
 #import "BoxHTTPRequestBuilders.h"
-#import "BoxLoginViewController.h"
 
 
 @interface BoxUploadOperation() {

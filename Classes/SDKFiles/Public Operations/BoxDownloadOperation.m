@@ -16,7 +16,7 @@
 //
 
 #import "BoxDownloadOperation.h"
-#import "BoxLoginViewController.h"
+#import "BoxUser.h"
 
 
 @interface BoxDownloadOperation()  {
@@ -52,7 +52,7 @@
 {
 	return [[[BoxDownloadOperation alloc] initForFileID:targetFileID
 											  localPath:path 
-											  authToken:[BoxLoginViewController currentUser].authToken
+											  authToken:[BoxUser savedUser].authToken
                                                delegate:nil] autorelease];
 }
 

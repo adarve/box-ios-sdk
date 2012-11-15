@@ -17,7 +17,7 @@
 
 #import "BoxGetUpdatesOperation.h"
 #import "BoxUpdatesListModelXMLBuilder.h"
-#import "BoxLoginViewController.h"
+#import "BoxUser.h"
 
 
 @interface BoxGetUpdatesOperation() {
@@ -42,7 +42,7 @@
 + (BoxGetUpdatesOperation *)operationForStartTime:(NSDate *)updatesStart
 {
 	return [[[BoxGetUpdatesOperation alloc] initForStartTime:updatesStart
-												   authToken:[BoxLoginViewController currentUser].authToken
+												   authToken:[BoxUser savedUser].authToken
 													delegate:nil] autorelease];
 }
 

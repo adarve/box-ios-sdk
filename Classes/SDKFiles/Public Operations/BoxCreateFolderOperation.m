@@ -16,7 +16,7 @@
 //
 
 #import "BoxCreateFolderOperation.h"
-#import "BoxLoginViewController.h"
+#import "BoxUser.h"
 
 
 @interface BoxCreateFolderOperation() {
@@ -51,7 +51,7 @@
 	return [[[BoxCreateFolderOperation alloc] initForFolderName:name
 													   parentID:parentID
 														  share:share
-													  authToken:[BoxLoginViewController currentUser].authToken
+													  authToken:[BoxUser savedUser].authToken
                                                        delegate:nil] autorelease];
 }
 

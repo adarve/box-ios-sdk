@@ -16,7 +16,7 @@
 //
 
 #import "BoxMoveOperation.h"
-#import "BoxLoginViewController.h"
+#import "BoxUser.h"
 
 
 @interface BoxMoveOperation() {
@@ -48,7 +48,7 @@ destinationFolderID:(NSString *)destFolderID
 	return [[[BoxMoveOperation alloc] initForItemID:itemID
 										   itemType:itemType
 								destinationFolderID:destFolderID
-										  authToken:[BoxLoginViewController currentUser].authToken
+										  authToken:[BoxUser savedUser].authToken
 										   delegate:nil] autorelease];
 }
 
