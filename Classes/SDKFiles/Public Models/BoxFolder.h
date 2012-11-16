@@ -37,12 +37,14 @@ typedef enum _BoxFolderDownloadResponseType {
 	NSMutableArray *_collaborations; // collaborations is not populated automatically by BoxFolderXMLBuilder
 	BOOL _isCollaborated;
 	int _folderCount;
+    NSString *_folderPath;
 }
 
 @property (nonatomic, readonly) NSMutableArray *objectsInFolder;
 @property (nonatomic, readwrite, retain) NSNumber *fileCount;
 @property (nonatomic, readonly) NSMutableArray *collaborations;
 @property (nonatomic, readwrite, assign) BOOL isCollaborated;
+@property (nonatomic, retain) NSString *folderPath;
 
 - (void)addModel:(BoxObject *)model;
 

@@ -35,7 +35,7 @@
 
 + (NSString *)getAccountTreeOneLevelUrlString:(NSString *)token boxFolderId:(NSString *)folderID {
 	NSString *urlString = [NSString stringWithFormat:
-						   @"https://www.box.net/api/1.0/rest?action=get_account_tree&api_key=%@&auth_token=%@&folder_id=%@&params[]=nozip&params[]=onelevel&params[]=has_collaborators&params[]=checksum",
+						   @"https://www.box.net/api/1.0/rest?action=get_account_tree&api_key=%@&auth_token=%@&folder_id=%@&params[]=nozip&params[]=onelevel&params[]=has_collaborators&params[]=checksum&params[]=show_path_names",
 						   BOX_API_KEY,
 						   token,
 						   folderID];

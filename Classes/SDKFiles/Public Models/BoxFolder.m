@@ -23,7 +23,7 @@
 @synthesize fileCount = _fileCount;
 @synthesize collaborations = _collaborations;
 @synthesize isCollaborated = _isCollaborated;
-
+@synthesize folderPath = _folderPath;
 
 - (id)init {
 	if (self = [super init]) {
@@ -55,6 +55,9 @@
 	}
 	if ([values objectForKey:@"has_collaborators"]) {
 		self.isCollaborated = ([((NSString*)[values objectForKey:@"has_collaborators"]) isEqualToString:@"1"] ? YES : NO);
+	}
+	if ([values objectForKey:@"folder_path"]) {
+		self.folderPath = [values objectForKey:@"folder_path"];
 	}
 }
 
